@@ -20,14 +20,14 @@ struct CustomSlidingRulerStyle: SlidingRulerStyle {
 }
 
 struct CustomCellBody: FractionableView {
-  let mark: Int
-  let bounds: ClosedRange<Double>
-  let step: Double
-  let cellWidth: CGFloat
+  var mark: CGFloat
+  var bounds: ClosedRange<CGFloat>
+  var step: CGFloat
+  var cellWidth: CGFloat
+  let height: CGFloat = mark % 5 == 0 ? 46 : 32
 
   var body: some View {
     VStack(alignment: .leading) {
-      let height: CGFloat = mark % 5 == 0 ? 46 : 32
       Rectangle()
         .fill(Color(UIColor(red: 0.579, green: 0.579, blue: 0.579, alpha: 1))
         .frame(width: 2, height: height)
